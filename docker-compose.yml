@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  misa-portal:
+    build: .
+    container_name: misa-sme-portal
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - CACHE_TTL=60
+    volumes:
+      - ./config:/app/config
+      - ./logs:/app/logs
+    # Connects to Host Windows network to access SQL Server on localhost:1433
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

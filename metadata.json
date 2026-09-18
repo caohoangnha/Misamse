@@ -1,0 +1,6 @@
+{
+  "name": "MISA SME Portal",
+  "description": "Cổng thông tin quản trị và tra cứu dữ liệu nội bộ MISA SME an toàn, bảo mật qua Internet",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

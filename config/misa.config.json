@@ -1,0 +1,84 @@
+{
+  "misa": {
+    "version": "MISA_SME_2022",
+    "versionName": "MISA SME 2022 / 2023",
+    "description": "Cấu hình kết nối cơ sở dữ liệu MISA SME chế độ READ ONLY",
+    "database": {
+      "type": "mssql",
+      "server": "localhost",
+      "port": 1433,
+      "databaseName": "MISA_SME_2022_DEMO",
+      "companyDatabase": "",
+      "user": "sa",
+      "password": "",
+      "connectionTimeout": 15000,
+      "requestTimeout": 30000,
+      "encrypt": false,
+      "trustServerCertificate": true,
+      "readOnly": true
+    },
+    "cache": {
+      "enabled": true,
+      "ttlSeconds": 60
+    },
+    "mappings": {
+      "products": {
+        "tableName": "InventoryItem",
+        "idField": "InventoryItemID",
+        "codeField": "InventoryItemCode",
+        "nameField": "InventoryItemName",
+        "unitField": "UnitName",
+        "barcodeField": "BarCode",
+        "costPriceField": "CostPrice",
+        "unitPriceField": "UnitPrice",
+        "minStockField": "MinimumStockLevel",
+        "isActiveField": "Inactive"
+      },
+      "inventory": {
+        "tableName": "InventorySummary",
+        "itemCodeField": "InventoryItemCode",
+        "stockCodeField": "StockCode",
+        "stockNameField": "StockName",
+        "quantityField": "ClosingQuantity",
+        "amountField": "ClosingAmount"
+      },
+      "customers": {
+        "tableName": "AccountObject",
+        "typeCondition": "AccountObjectType IN (0, 2)",
+        "idField": "AccountObjectID",
+        "codeField": "AccountObjectCode",
+        "nameField": "AccountObjectName",
+        "phoneField": "Tel",
+        "addressField": "Address",
+        "taxCodeField": "CompanyTaxCode",
+        "emailField": "Email"
+      },
+      "suppliers": {
+        "tableName": "AccountObject",
+        "typeCondition": "AccountObjectType IN (1, 2)",
+        "idField": "AccountObjectID",
+        "codeField": "AccountObjectCode",
+        "nameField": "AccountObjectName",
+        "phoneField": "Tel",
+        "addressField": "Address",
+        "taxCodeField": "CompanyTaxCode"
+      },
+      "receivables": {
+        "tableName": "AR_Detail",
+        "customerCodeField": "AccountObjectCode",
+        "customerNameField": "AccountObjectName",
+        "amountField": "RemainingAmount",
+        "dueDateField": "DueDate",
+        "voucherNoField": "RefNo"
+      },
+      "payables": {
+        "tableName": "AP_Detail",
+        "supplierCodeField": "AccountObjectCode",
+        "supplierNameField": "AccountObjectName",
+        "amountField": "RemainingAmount",
+        "dueDateField": "DueDate",
+        "voucherNoField": "RefNo"
+      }
+    }
+  }
+}
